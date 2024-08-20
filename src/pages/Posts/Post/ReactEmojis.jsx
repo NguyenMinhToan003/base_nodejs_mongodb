@@ -13,8 +13,8 @@ import IconButton from '@mui/material/IconButton'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied'
 const ReactEmojis = () => {
-  const [bookmark, setBookmark] = useState(false)
-  const [like, setLike] = useState(false)
+  const [bookmark, setBookmark] = useState(true)
+  const [like, setLike] = useState(true)
   return <>
     <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
       <Box sx={{ display:'flex', alignItems:'center', gap:2 }}>
