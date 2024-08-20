@@ -5,12 +5,15 @@ import Box from '@mui/material/Box'
 import avatar from '~/assets/avatar.png'
 import IconButton from '@mui/material/IconButton'
 import Avatar from '@mui/material/Avatar'
-const HeadPost = ({ userName, date }) => {
+import CloseIcon from '@mui/icons-material/Close'
+const Message = () => {
+  const userName = 'John Doe'
+  const date = 'October 11 •'
   return <>
     <Box
-      sx={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:1 }}>
+      sx={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:1, backgroundColor:'background.secondary', ':hover':{ backgroundColor:'background.primary' }, padding:'10px 0px' }}>
       <Box
-        sx={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:1 }}>
+        sx={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:2 }}>
         <Avatar src={avatar} sx={{ cursor:'pointer' }}/>
         <Box
           sx={{ display:'flex', flexDirection:'column', alignItems:'start' }}>
@@ -25,8 +28,11 @@ const HeadPost = ({ userName, date }) => {
           </Box>
         </Box>
       </Box>
-      <IconButton><MoreHorizIcon sx={{ fontSize:'25px', color:'text.primary' }}/></IconButton>
+      <Box>
+        <IconButton><MoreHorizIcon sx={{ fontSize:'25px', color:'text.primary' }}/></IconButton>
+        <IconButton sx={{ color:'text.primary', ':hover':{ color:'error.main' } }}><CloseIcon sx={{ fontSize:'25px' }}/></IconButton>
+      </Box>
     </Box>
   </>
 }
-export default HeadPost
+export default Message

@@ -2,9 +2,9 @@ import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 
 export const theme = extendTheme({
   socialMedia: {
-    withLeft:'30%',
-    withMain:'50%',
-    withRight:'20%'
+    widthLeft:'15%',
+    widthMain:'55%',
+    widthRight:'30%'
   },
   palette: {
     primary: {
@@ -18,8 +18,11 @@ export const theme = extendTheme({
       primary: '#000000',
       secondary:'#65676b'
     },
-    hastag:{
+    hashtag:{
       primary:'#1776f2'
+    },
+    error:{
+      main:'#ff0000'
     }
   },
   components:{
@@ -28,9 +31,12 @@ export const theme = extendTheme({
         root: {
           textTransform: 'none',
           whiteSpace: 'nowrap',
-          color:'inherit'
+          color:'inherit',
+          borderRadius: 'none',
+          fontSize:'inherit'
         } }
     }
+
   }
 
 })
