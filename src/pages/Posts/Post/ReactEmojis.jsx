@@ -19,13 +19,13 @@ const ReactEmojis = () => {
     <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
       <Box sx={{ display:'flex', alignItems:'center', gap:2 }}>
         <Box >
-          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#0b7ede', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#0b7ede' } }}>
+          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#0b7ede', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#0b7ede' ,scale:'1.8'} }}>
             <ThumbUpAltIcon />
           </IconButton>
-          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#f23d5b', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#f23d5b' } }}>
+          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#f23d5b', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#f23d5b', scale:'1.8'} }}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#f7b928', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#f7b928' } }}>
+          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#f7b928', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#f7b928', scale:'1.8' } }}>
             <SentimentVerySatisfiedIcon />
           </IconButton>
         </Box>

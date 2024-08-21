@@ -1,14 +1,12 @@
-import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
-import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined'
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined'
+import BtnHome from './Menu/BtnHome'
+import BtnSearch from './Menu/BtnSearch'
+import BtnNotification from './Menu/BtnNotification'
+import BtnGroup from './Menu/BtnGroup'
+import BtnBookmark from './Menu/BtnBookmark'
+import BtnProfile from './Menu/BtnProfile'
 import Divider from '@mui/material/Divider'
-// import Logo from '~/assets/logo.png'
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
-import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined'
-import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined'
-import { Typography } from '@mui/material'
+import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
   return (
@@ -22,111 +20,34 @@ const Nav = () => {
           bottom: '0',
           display: 'flex',
           flexDirection: 'column',
-          gap: 1,
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: '1.2rem'
         }}
       >
-        <Button
-          variant="text"
-          color="primary"
-          sx={{
-            width: '100%',
-            padding: '20px 0',
-            color: 'error.main'
-          }}
-          startIcon={<LocalFireDepartmentOutlinedIcon />}
-        >
-          <Typography
-            sx={{
-              display: { sm: 'none', md: 'inline' },
-              fontWeight: 'bold'
-            }}
-          >
-            Home
-          </Typography>
-        </Button>
+        <NavLink to="/" className='navLink'>
+          <BtnHome />
+        </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
-        <Button
-          variant="text"
-          color="primary"
-          sx={{ width: '100%', padding: '20px 0' }}
-          startIcon={<SearchOutlinedIcon fontSize="20px" />}
-        >
-          <Typography
-            sx={{
-              display: { sm: 'none', md: 'inline' },
-              fontWeight: 'bold'
-            }}
-          >
-            Search
-          </Typography>
-        </Button>
+        <NavLink to="/search" className='navLink'>
+          <BtnSearch />
+        </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
-        <Button
-          variant="text"
-          color="primary"
-          sx={{ width: '100%', padding: '20px 0' }}
-          startIcon={<NotificationsOutlinedIcon />}
-        >
-          <Typography
-            sx={{
-              display: { sm: 'none', md: 'inline' },
-              fontWeight: 'bold'
-            }}
-          >
-            Notification
-          </Typography>
-        </Button>
+        <NavLink to="/notification" className='navLink'>
+          <BtnNotification />
+        </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
-        <Button
-          variant="text"
-          color="primary"
-          sx={{ width: '100%', padding: '20px 0' }}
-          startIcon={<PeopleAltOutlinedIcon />}
-        >
-          <Typography
-            sx={{
-              display: { sm: 'none', md: 'inline' },
-              fontWeight: 'bold'
-            }}
-          >
-            Group
-          </Typography>
-        </Button>
+        <NavLink to="/group" className='navLink'>
+          <BtnGroup />
+        </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
-        <Button
-          variant="text"
-          color="primary"
-          sx={{ width: '100%', padding: '20px 0' }}
-          startIcon={<BookmarkBorderOutlinedIcon />}
-        >
-          <Typography
-            sx={{
-              display: { sm: 'none', md: 'inline' },
-              fontWeight: 'bold'
-            }}
-          >
-            Bookmark
-          </Typography>
-        </Button>
+        <NavLink to="/bookmark" className='navLink'>
+          <BtnBookmark />
+        </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
-        <Button
-          variant="text"
-          color="primary"
-          sx={{ width: '100%', padding: '20px 0' }}
-          startIcon={<ManageAccountsOutlinedIcon />}
-        >
-          <Typography
-            sx={{
-              display: { sm: 'none', md: 'inline' },
-              fontWeight: 'bold'
-            }}
-          >
-            Account
-          </Typography>
-        </Button>
+        <NavLink to="/profile" className='navLink'>
+          <BtnProfile/>
+        </NavLink>
       </Box>
       <Divider
         orientation="vertical"

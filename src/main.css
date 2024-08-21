@@ -1,0 +1,9 @@
+.navLink {
+    display: inline-block;
+    color:inherit;
+    width: 100%;
+}
+.active{
+    color: red !important;
+    border-bottom: 2px solid black;
+}

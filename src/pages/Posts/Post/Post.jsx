@@ -39,11 +39,13 @@ const Post = ({ post }) => {
           <Typography variant="body1" component="span" color="text.primary">
             {post.content}
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent:'start', gap: 1 }}>
             {
               post.hashtags.map((hashtag, index) => (
-                <Link key={index} href="#" color="hashtag.primary">
-                #{hashtag}
+                <Link key={index} href="#" >
+                  <Typography component="span" color="hashtag.primary">
+                    #{hashtag}
+                  </Typography>
                 </Link>
               ))
             }
