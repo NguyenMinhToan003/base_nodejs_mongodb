@@ -11,11 +11,13 @@ const Posts = () => {
   if (!listPost) return <Box
     sx={{ display:'flex', justifyContent:'center', alignItems:'center', height:'100vh' }}><CircularProgress/>Loading...</Box>
   return <>
-    {
-      listPost?.map((post, index) => (
-        <Post key={index} post={post} />
-      ))
-    }
+    <Box >
+      {
+        listPost?.map((post, index) => (
+          <Post key={index} post={post} />
+        ))
+      }
+    </Box>
   </>
 }
 

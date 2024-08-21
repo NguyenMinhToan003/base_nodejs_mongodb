@@ -36,7 +36,6 @@ export const theme = extendTheme({
           fontSize:'inherit'
         } }
     }
-
   }
 
 })

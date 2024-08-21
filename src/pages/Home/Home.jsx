@@ -2,6 +2,7 @@ import Box from '@mui/material/Box'
 import Posts from '~/pages/Posts/Posts'
 import Nav from '~/components/Nav/Nav'
 import Recovery from '../../components/Recovery/Recovery'
+import { Outlet } from 'react-router-dom'
 const Home = () => {
   return (
     <>
@@ -23,10 +24,7 @@ const Home = () => {
             gap: 2
           }}
         >
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
+          <Outlet />
         </Box>
         <Box
           sx={{

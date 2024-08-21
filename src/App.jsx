@@ -1,10 +1,11 @@
 import Container from '@mui/material/Container'
-import Home from './pages/Home/Home'
+
+import AppRouter from './routers/AppRouter'
 function App() {
   return (
     <>
       <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
-        <Home />
+        <AppRouter />
       </Container>
     </>
   )
