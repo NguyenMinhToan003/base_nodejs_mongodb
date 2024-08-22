@@ -8,7 +8,18 @@ import HeadPost from './HeadPost'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import Divider from '@mui/material/Divider'
+import { useConfirm } from 'material-ui-confirm'
 const Post = ({ post }) => {
+  const confirm = useConfirm()
+  const handleShowImage = (image) => {
+    confirm({
+      title: '',
+      description: <img src={image} alt="media" style={{ width: '100%', height: 'auto' }} />
+    })
+      .then(() => {
+      })
+      .catch(() => {})
+  }
   return (
     <>
       <Box
@@ -51,31 +62,41 @@ const Post = ({ post }) => {
             }
           </Box>
         </Box>
-
-        <ImageList
-          sx={{ width: '100%', maxHeight: '630px', overflowY:'hidden' }}
-          max={4}
-        >
-          {post.media.map((item, index) => (
-            <ImageListItem key={index} sx={{ cursor:'pointer', position:'relative' }}>
-              {
-                index === 3 && post.media.length > 4 &&
-              <Box sx={{ display:'flex', justifyContent:'center', backgroundColor:'#00000097', position:'absolute', top:'0', left:'0', right:'0', height:'100%', paddingTop:3 }}>
-                <Typography variant="h6" color="primary.main" sx={{ fontWeight: 'bold' }}>
+        {
+          post.media.length === 1 && (
+            <Box sx={{ display: 'flex', justifyContent: 'center' }} onClick={() => handleShowImage(post.media[0])}>
+              <img src={post.media[0] } alt="media" style={{ width: '100%', height: 'auto', borderRadius: '10px' }} />
+            </Box>)
+        }
+        {
+          post.media.length > 1 && (
+            <ImageList
+              sx={{ width: '100%', height: '600px', overflowY:'hidden' }}
+              max={4}
+            >
+              {post.media.map((item, index) => (
+                <ImageListItem key={index} sx={{ cursor:'pointer', position:'relative', overflow:'hidden', width:'100%' }} onClick={() => handleShowImage(item)}>
+                  {
+                    index === 3 && post.media.length > 4 &&
+              <Box sx={{ display:'flex', justifyContent:'center', backgroundColor:'#00000097', position:'absolute', top:'0', left:'0', right:'0', height:'100%', justifyItems:'center', alignItems:'center' }}>
+                <Typography color="primary.main" sx={{ fontWeight: 'bold', fontSize:'20px' }}>
                 +{post.media.length - 4} more
                 </Typography>
               </Box>
-              }
-              <img
-                srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                src={`${item}?w=248&fit=crop&auto=format`}
-                loading="lazy"
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
-
-        <ReactEmojis />
+                  }
+                  {
+                    index<4 ? <img
+                      srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                      src={`${item}?w=248&fit=crop&auto=format`}
+                      loading="lazy"
+                    />: null
+                  }
+                </ImageListItem>
+              ))}
+            </ImageList>
+          )
+        }
+        <ReactEmojis comments={post.comments} />
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <img src={avatar} alt="avatar" style={{ width: '25px', height: '25px', borderRadius: '50%' }} />

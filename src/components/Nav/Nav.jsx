@@ -7,7 +7,6 @@ import BtnBookmark from './Menu/BtnBookmark'
 import BtnProfile from './Menu/BtnProfile'
 import Divider from '@mui/material/Divider'
 import { NavLink } from 'react-router-dom'
-
 const Nav = () => {
   return (
     <>
@@ -22,7 +21,8 @@ const Nav = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          fontSize: '1.2rem'
+          fontSize: '1.2rem',
+          color:'text.secondary'
         }}
       >
         <NavLink to="/" className='navLink'>

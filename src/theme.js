@@ -34,7 +34,15 @@ export const theme = extendTheme({
           color:'inherit',
           borderRadius: 'none',
           fontSize:'inherit'
-        } }
+        }
+      }
+    },
+    MuiPaper:{
+      styleOverrides:{
+        root:{
+          minHeight:'80vh'
+        }
+      }
     }
   }
 
