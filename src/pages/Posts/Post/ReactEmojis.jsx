@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Button from '@mui/material/Button'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -12,17 +11,23 @@ import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt'
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied'
-const ReactEmojis = () => {
+import ShowComments from '~/components/ShowComments/ShowComments'
+import { useState } from 'react'
+const ReactEmojis = ({ comments }) => {
+  const [showComment, setShowComment] = useState(false)
   const [bookmark, setBookmark] = useState(true)
   const [like, setLike] = useState(true)
   return <>
+    {
+      showComment && <ShowComments showComment={showComment} setShowComment={setShowComment} comments={comments}/>
+    }
     <Box sx={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
       <Box sx={{ display:'flex', alignItems:'center', gap:2 }}>
         <Box >
-          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#0b7ede', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#0b7ede' ,scale:'1.8'} }}>
+          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#0b7ede', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#0b7ede', scale:'1.8' } }}>
             <ThumbUpAltIcon />
           </IconButton>
-          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#f23d5b', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#f23d5b', scale:'1.8'} }}>
+          <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#f23d5b', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#f23d5b', scale:'1.8' } }}>
             <FavoriteIcon />
           </IconButton>
           <IconButton sx={{ transition:'all 0.25s ease-out', backgroundColor:'#f7b928', color:'primary.main', ':hover':{ backgroundColor:'bacground.primary', color:'#f7b928', scale:'1.8' } }}>
@@ -45,13 +50,12 @@ const ReactEmojis = () => {
           <Typography variant="span" color='text.secondary'>Like</Typography>
         </Button>
 
-        <Button sx={{ color:'text.primary', width:'100%', height:'100%' }} startIcon={<ChatBubbleOutlineIcon/>}>
-          <Typography variant="span" color='text.secondary'>Comment</Typography>
+        <Button sx={{ color:'text.primary', width:'100%', height:'100%' }} startIcon={<ChatBubbleOutlineIcon/>} onClick={() => setShowComment(true)} >
+          <Typography variant="span" color='text.secondary'>Comments</Typography>
         </Button>
         <Button sx={{ color:'text.primary', width:'100%', height:'100%' }} startIcon={<TelegramIcon/>}>
           <Typography variant="span" color='text.secondary'>Share</Typography>
         </Button>
-
         <IconButton onClick={() => setBookmark(!bookmark)} sx={{ color:'text.primary' }}>
           {
             bookmark ? <BookmarkIcon/> : <BookmarkBorderIcon/>

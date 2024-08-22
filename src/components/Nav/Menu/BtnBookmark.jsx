@@ -1,21 +1,24 @@
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
+import Tooltip from '@mui/material/Tooltip'
 const BtnBookmark = () => {
-  return <Button
-    variant="text"
-    color="primary"
-    sx={{ width: '100%', padding: '20px 0' }}
-    startIcon={<BookmarkBorderOutlinedIcon />}
-  >
-    <Typography
-      sx={{
-        display: { sm: 'none', md: 'inline' },
-        fontWeight: 'bold'
-      }}
+  return <Tooltip title="Bookmark">
+    <Button
+      variant="text"
+      color="primary"
+      sx={{ width: '100%', padding: '20px 0' }}
+      startIcon={<BookmarkBorderOutlinedIcon />}
     >
+      <Typography
+        sx={{
+          display: { sm: 'none', md: 'inline' },
+          fontWeight: 'bold'
+        }}
+      >
             Bookmark
-    </Typography>
-  </Button>
+      </Typography>
+    </Button>
+  </Tooltip>
 }
 export default BtnBookmark
