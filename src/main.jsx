@@ -10,11 +10,13 @@ createRoot(document.getElementById('root')).render(
   <CssVarsProvider theme={theme}>
     <ConfirmProvider defaultOptions={
       {
-        title: 'Are you sure?'
+        title: 'Are you sure?',
+        confirmationText: '',
+        cancellationText: 'Close'
       }
     }>
       <BrowserRouter>
-        <CssBaseline/>
+        <CssBaseline />
         <App />
       </BrowserRouter>
     </ConfirmProvider>
