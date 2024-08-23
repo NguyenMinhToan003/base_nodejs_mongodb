@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box'
-import Posts from '~/pages/Posts/Posts'
 import Nav from '~/components/Nav/Nav'
 import Recovery from '../../components/Recovery/Recovery'
 import { Outlet } from 'react-router-dom'
@@ -8,17 +7,17 @@ const Home = () => {
     <>
       <Nav />
       <Recovery />
-      <Box sx={{ display:'flex' }}>
+      <Box sx={{ display: 'flex' }}>
         <Box
           sx={{
-            minWidth:theme => theme.socialMedia.widthLeft,
-            maxWidth:theme => theme.socialMedia.widthLeft
+            minWidth: theme => theme.socialMedia.widthLeft,
+            maxWidth: theme => theme.socialMedia.widthLeft
           }}
         >
         </Box>
         <Box
           sx={{
-            width:{ sx: '100%', md: '55%' },
+            width: { sx: '100%', md: '55%' },
             display: 'flex',
             flexDirection: 'column',
             gap: 2
@@ -28,9 +27,9 @@ const Home = () => {
         </Box>
         <Box
           sx={{
-            minWidth:theme => theme.socialMedia.widthRight,
-            maxWidth:theme => theme.socialMedia.widthRight,
-            display:{ xs:'none', md:'block' }
+            minWidth: theme => theme.socialMedia.widthRight,
+            maxWidth: theme => theme.socialMedia.widthRight,
+            display: { xs: 'none', md: 'block' }
           }}>
         </Box>
       </Box>

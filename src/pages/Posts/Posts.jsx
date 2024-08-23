@@ -9,7 +9,7 @@ const Posts = () => {
     setListPost(mockDataPost.posts)
   }, [])
   if (!listPost) return <Box
-    sx={{ display:'flex', justifyContent:'center', alignItems:'center', height:'100vh' }}><CircularProgress/>Loading...</Box>
+    sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}><CircularProgress />Loading...</Box>
   return <>
     <Box >
       {

@@ -7,6 +7,7 @@ import BtnBookmark from './Menu/BtnBookmark'
 import BtnProfile from './Menu/BtnProfile'
 import Divider from '@mui/material/Divider'
 import { NavLink } from 'react-router-dom'
+import BtnAddPost from './Menu/BtnAddPost'
 const Nav = () => {
   return (
     <>
@@ -22,7 +23,7 @@ const Nav = () => {
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: '1.2rem',
-          color:'text.secondary'
+          color: 'text.secondary'
         }}
       >
         <NavLink to="/" className='navLink'>
@@ -46,9 +47,11 @@ const Nav = () => {
         </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
         <NavLink to="/profile" className='navLink'>
-          <BtnProfile/>
+          <BtnProfile />
         </NavLink>
+        <BtnAddPost />
       </Box>
+
       <Divider
         orientation="vertical"
         sx={{
