@@ -10,7 +10,6 @@ import { styled } from '@mui/material/styles'
 import Badge from '@mui/material/Badge'
 const Message = () => {
   const userName = 'John Doe'
-  const date = 'October 11 •'
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
       backgroundColor: '#44b700',
@@ -41,31 +40,25 @@ const Message = () => {
   }))
   return <>
     <Box
-      sx={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:1, backgroundColor:'background.secondary', ':hover':{ backgroundColor:'background.primary' }, padding:'10px 0px' }}>
+      sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, backgroundColor: 'background.secondary', cursor: 'pointer', ':hover': { backgroundColor: 'background.primary' }, padding: '10px 0px' }}>
       <Box
-        sx={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:2 }}>
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
         <StyledBadge
           overlap="circular"
           variant="dot"
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        ><Avatar src={avatar} sx={{ cursor:'pointer' }}/></StyledBadge>
-
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
+          <Avatar src={avatar} sx={{ cursor: 'pointer', width: '1.8rem', height: '1.8rem' }} />
+        </StyledBadge>
         <Box
-          sx={{ display:'flex', flexDirection:'column', alignItems:'start' }}>
-          <Typography variant="h6" color='text.primary'
-            sx={{ fontWeight:'bold', cursor:'pointer' }}>
+          sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
+          <Typography variant="p" color='text.primary'>
             {userName}
           </Typography>
-          <Box
-            sx={{ display:'flex', justifyContent:'center', alignItems:'center', fontSize:'14px', color:'text.secondary', fontWeight:'200', gap:1 }}>
-            <Typography variant="span" >{date}</Typography>
-            <PublicIcon sx={{ fontSize:'16px' }}/>
-          </Box>
         </Box>
       </Box>
       <Box>
-        <IconButton><MoreHorizIcon sx={{ fontSize:'25px', color:'text.primary' }}/></IconButton>
-        <IconButton sx={{ color:'text.primary', ':hover':{ color:'error.main' } }}><CloseIcon sx={{ fontSize:'25px' }}/></IconButton>
+        <IconButton><MoreHorizIcon sx={{ fontSize: '25px', color: 'text.secondary' }} /></IconButton>
+        <IconButton sx={{ color: 'text.secondary', ':hover': { color: 'error.main' } }}><CloseIcon sx={{ fontSize: '25px' }} /></IconButton>
       </Box>
     </Box>
   </>

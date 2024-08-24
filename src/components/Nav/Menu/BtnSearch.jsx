@@ -12,11 +12,11 @@ const BtnSearch = () => {
     >
       <Typography
         sx={{
-          display: { sm: 'none', md: 'inline' },
+          display: { sm: 'none', xl: 'inline' },
           fontWeight: 'bold'
         }}
       >
-            Search
+        Search
       </Typography>
     </Button>
   </Tooltip>

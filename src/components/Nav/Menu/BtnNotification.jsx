@@ -12,11 +12,11 @@ const BtnNotification = () => {
     >
       <Typography
         sx={{
-          display: { sm: 'none', md: 'inline' },
+          display: { sm: 'none', xl: 'inline' },
           fontWeight: 'bold'
         }}
       >
-            Notification
+        Notification
       </Typography>
     </Button>
   </Tooltip>

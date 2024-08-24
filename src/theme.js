@@ -8,11 +8,14 @@ export const theme = extendTheme({
   },
   palette: {
     primary: {
-      main: '#DEE1E6'
+      main: '#ffffff'
+    },
+    secondary: {
+      main: '#2b54ea'
     },
     background: {
       primary: '#f7f8fa',
-      secondary: '#FFFFFF'
+      secondary: '#ffffff'
     },
     text: {
       primary: '#000000',
@@ -22,7 +25,7 @@ export const theme = extendTheme({
       primary: '#1776f2'
     },
     error: {
-      main: '#ff0000'
+      main: '#E23744'
     }
   },
   components: {

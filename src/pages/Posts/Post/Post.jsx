@@ -26,12 +26,15 @@ const Post = ({ post }) => {
         <Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 1 }}>
             {
-              post.media[imageIndex] === null ? <Typography variant="h6" color='text.primary'>Loading...</Typography> : <img
-                src={`${post.media[imageIndex]}`}
-                style={{ objectFit: 'scale-down', maxHeight: '600px', maxWidth: '100%' }}
-                loading="lazy"
-                alt="media"
-              />
+              post.media[imageIndex] === null ?
+                <Typography variant="h6" color='text.primary'>Loading...</Typography>
+                :
+                <img
+                  src={`${post.media[imageIndex]}`}
+                  style={{ objectFit: 'scale-down', maxHeight: '700px', maxWidth: '100%' }}
+                  loading="lazy"
+                  alt="media"
+                />
             }
             <Typography variant="h6" color='text.primary'>{imageIndex + 1}/{post.media.length}</Typography>
           </Box>
@@ -41,7 +44,7 @@ const Post = ({ post }) => {
               if (imageIndex < post.media.length - 1) setImageIndex(imageIndex + 1)
             }} />
         </Box >,
-      cancellationText: <Button variant='contained' >Close</Button>,
+      cancellationText: <Button variant='text' sx={{ color: 'error.main' }}>Close</Button>,
       buttonOrder: ['confirm', 'cancel']
     })
       .then(() => {
@@ -130,7 +133,7 @@ const Post = ({ post }) => {
             </ImageList>
           )
         }
-        <ReactEmojis comments={post.comments} />
+        <ReactEmojis comments={post.comments} likes={post.likes} />
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <img src={avatar} alt="avatar" style={{ width: '25px', height: '25px', borderRadius: '50%' }} />

@@ -14,7 +14,7 @@ const Comment = ({ comment }) => {
   const day = time.toLocaleDateString()
   return <>
     <Box sx={{
-      display: 'flex', gap: 2, justifyContent: 'space-between', alignItems: 'start', width: '100%', ':hover': { background: 'primary.secondary' }
+      display: 'flex', gap: 2, justifyContent: 'space-between', alignItems: 'start', width: '100%'
     }}>
       <Box sx={{ display: 'flex', gap: 2, justifyContent: 'start', alignItems: 'start', width: '100%' }}>
         <img src={comment?.profile_picture} alt='avatar' style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
@@ -32,7 +32,6 @@ const Comment = ({ comment }) => {
       </Box >
       <IconButton><MoreVertIcon /></IconButton>
     </Box >
-
   </>
 }
 export default Comment

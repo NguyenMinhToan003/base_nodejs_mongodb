@@ -1,11 +1,14 @@
+import Box from '@mui/material/Box'
+import Comment from './Comment'
 const Comments = () => {
-  return <div>
-    <h1>Comments</h1>
-    <ul>
-      <li>Comment 1</li>
-      <li>Comment 2</li>
-      <li>Comment 3</li>
-    </ul>
-  </div>
+  return <>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, padding: '10px' }}>
+      <Comment />
+      <Comment />
+      <Comment />
+      <Comment />
+      <Comment />
+    </Box>
+  </>
 }
 export default Comments

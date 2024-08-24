@@ -17,10 +17,12 @@ const Home = () => {
         </Box>
         <Box
           sx={{
-            width: { sx: '100%', md: '55%' },
+            width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            gap: 2
+            gap: 2,
+            overflowY: 'auto',
+            overflowX: 'hidden'
           }}
         >
           <Outlet />
