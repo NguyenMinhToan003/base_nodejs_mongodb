@@ -15,11 +15,11 @@ const BtnHome = () => {
     >
       <Typography
         sx={{
-          display: { sm: 'none', md: 'inline' },
+          display: { sm: 'none', xl: 'inline' },
           fontWeight: 'bold'
         }}
       >
-            Home
+        Home
       </Typography>
     </Button>
   </Tooltip>

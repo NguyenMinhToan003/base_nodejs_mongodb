@@ -14,7 +14,7 @@ import Tooltip from '@mui/material/Tooltip'
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied'
 import ShowComments from '~/components/ShowComments/ShowComments'
 import { useState } from 'react'
-const ReactEmojis = ({ comments }) => {
+const ReactEmojis = ({ comments, likes }) => {
   const [showComment, setShowComment] = useState(false)
   const [bookmark, setBookmark] = useState(true)
   const [like, setLike] = useState(true)
@@ -41,7 +41,7 @@ const ReactEmojis = ({ comments }) => {
             </IconButton>
           </Tooltip>
         </Box>
-        <Typography variant="span" color='text.secondary'>172</Typography>
+        <Typography variant="span" color='text.secondary'>{likes.length}</Typography>
       </Box>
       <Box sx={{ display: 'flex', gap: 1 }}>
         <Typography variant="span" color='text.secondary'>42 Comments</Typography>

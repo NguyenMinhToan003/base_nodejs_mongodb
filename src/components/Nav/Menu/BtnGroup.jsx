@@ -2,7 +2,7 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
-const BtnGroup =() => {
+const BtnGroup = () => {
   return <Tooltip title="Group">
     <Button
       variant="text"
@@ -12,11 +12,11 @@ const BtnGroup =() => {
     >
       <Typography
         sx={{
-          display: { sm: 'none', md: 'inline' },
+          display: { sm: 'none', xl: 'inline' },
           fontWeight: 'bold'
         }}
       >
-            Group
+        Group
       </Typography>
     </Button>
   </Tooltip>

@@ -12,11 +12,11 @@ const BtnBookmark = () => {
     >
       <Typography
         sx={{
-          display: { sm: 'none', md: 'inline' },
+          display: { sm: 'none', xl: 'inline' },
           fontWeight: 'bold'
         }}
       >
-            Bookmark
+        Bookmark
       </Typography>
     </Button>
   </Tooltip>

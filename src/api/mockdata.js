@@ -29,6 +29,96 @@ export const mockDataPost = {
         'timestamp': '2024-08-19T12:10:00Z'
       },
       {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
+        '_id': 'comment_id_1',
+
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4',
+
+        'comment': 'This is the first comment.',
+        'timestamp': '2024-08-19T12:10:00Z'
+      },
+      {
         '_id': 'comment_id_2',
 
         'user_id': 'user_id_3',

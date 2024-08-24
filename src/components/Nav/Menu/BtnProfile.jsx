@@ -12,11 +12,11 @@ const BtnProfile = () => {
     >
       <Typography
         sx={{
-          display: { sm: 'none', md: 'inline' },
+          display: { sm: 'none', xl: 'inline' },
           fontWeight: 'bold'
         }}
       >
-            Account
+        Account
       </Typography>
     </Button>
   </Tooltip>
