@@ -1,0 +1,10 @@
+.navLink {
+    display: inline-block;
+    color:inherit;
+    width: 100%;
+}
+.active{
+    color: black !important;
+    border-bottom: 3px solid black;
+}
+input { outline: none; border: none; }
