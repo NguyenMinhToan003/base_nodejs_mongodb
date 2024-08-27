@@ -5,7 +5,9 @@ import { theme } from './theme.js'
 import CssBaseline from '@mui/material/CssBaseline'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfirmProvider } from 'material-ui-confirm'
+import { Bounce, ToastContainer } from 'react-toastify'
 import './main.css'
+import 'react-toastify/dist/ReactToastify.css'
 createRoot(document.getElementById('root')).render(
   <CssVarsProvider theme={theme}>
     <ConfirmProvider defaultOptions={
@@ -18,6 +20,19 @@ createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <CssBaseline />
         <App />
+        <ToastContainer
+          position='bottom-left'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme='colored'
+          transition={Bounce}
+        />
       </BrowserRouter>
     </ConfirmProvider>
   </CssVarsProvider>

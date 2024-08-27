@@ -1,17 +1,17 @@
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
-import GroupMessage from '~/components/GroupMessage/GroupMessage'
-const Recovery = ({ setStatusAction, setUser }) => {
+import RoomChats from '~/components/RoomChats/RoomChats'
+const Recovery = ({ setStatusAction, setRoom }) => {
   return (
     <>
-      <Typography variant='h6' sx={{ padding: '20px 0', textAlign: 'center', fontWeight: 'bold' }}>Recovery</Typography>
+      <Typography variant='h6' sx={{ padding: '10px', textAlign: 'center', fontWeight: 'bold' }}>Room Chats</Typography>
       <TextField
         variant="filled"
         fullWidth
         placeholder="Search for recovery"
-        sx={{ marginBottom: 2 }}
+        sx={{ marginBottom: 2, padding: '10px' }}
       />
-      <GroupMessage setStatusAction={setStatusAction} setUser={setUser} />
+      <RoomChats setStatusAction={setStatusAction} setRoom={setRoom} />
     </>
   )
 }
