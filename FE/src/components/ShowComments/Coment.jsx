@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 const Comment = ({ comment }) => {
   const [like, setLike] = useState('none')
-  const time = new Date(comment?.timestamp)
+  const time = new Date(comment?.createdAt)
   const day = time.toLocaleDateString()
   return <>
     <Box sx={{

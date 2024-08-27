@@ -6,7 +6,8 @@ import Avatar from '@mui/material/Avatar'
 import CloseIcon from '@mui/icons-material/Close'
 import { styled } from '@mui/material/styles'
 import Badge from '@mui/material/Badge'
-const Message = ({ user, setStatusAction, setUser }) => {
+const RoomChat = ({ roomChat, setStatusAction, setRoom }) => {
+  if (!roomChat) return null
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
       backgroundColor: '#44b700',
@@ -37,28 +38,28 @@ const Message = ({ user, setStatusAction, setUser }) => {
   }))
   return <>
     <Box
-      onClick={() => { setStatusAction('chat'), setUser(user) }}
       sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, backgroundColor: 'background.secondary', cursor: 'pointer', ':hover': { backgroundColor: 'background.primary' }, padding: '10px 0px' }} >
       <Box
-        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
+        onClick={() => { setStatusAction('chat'), setRoom(roomChat) }}
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 2, width: '100%' }}>
         <StyledBadge
           overlap="circular"
           variant="dot"
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
-          <Avatar src={user.avatar} sx={{ cursor: 'pointer', width: '1.8rem', height: '1.8rem' }} />
+          <Avatar src={roomChat.avatarRoom} sx={{ cursor: 'pointer', width: '1.8rem', height: '1.8rem' }} />
         </StyledBadge>
         <Box
           sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
           <Typography variant='body1' color='text.primary'>
-            {user.name}
+            {roomChat.name}
           </Typography>
         </Box>
       </Box>
-      <Box>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <IconButton><MoreHorizIcon sx={{ fontSize: '25px', color: 'text.secondary' }} /></IconButton>
         <IconButton sx={{ color: 'text.secondary', ':hover': { color: 'error.main' } }}><CloseIcon sx={{ fontSize: '25px' }} /></IconButton>
       </Box>
     </Box >
   </>
 }
-export default Message
+export default RoomChat

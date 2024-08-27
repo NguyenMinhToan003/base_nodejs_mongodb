@@ -19,6 +19,8 @@ const AppRouter = () => {
           <Route path='follower' element={<Follwer />} />
         </Route>
         <Route path='chats' element={<Chats />} />
+        <Route path='bookmark' element={<Posts />} />
+        <Route path='notifications' element={<Notifications />} />
       </Route>
       <Route path='login' element={<Login />} />
       <Route path='signup' element={<Signup />} />

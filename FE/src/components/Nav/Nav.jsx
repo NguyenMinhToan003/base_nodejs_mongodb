@@ -34,7 +34,7 @@ const Nav = () => {
           <BtnSearch />
         </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
-        <NavLink to="/notification" className='navLink'>
+        <NavLink to="/notifications" className='navLink'>
           <BtnNotification />
         </NavLink>
         <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
