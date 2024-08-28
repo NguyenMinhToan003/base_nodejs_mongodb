@@ -8,7 +8,7 @@ const Notifications = () => {
     setNotifications(mockDataNotification.notifications)
   }, [])
   return <>
-    <Box sx={{ display: 'flex', flexDirection: 'column-reverse', gap: 1, padding: '10px' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, padding: '10px' }}>
       {
         notifications?.map((data, index) => {
           return <Notification key={index} notification={data} />

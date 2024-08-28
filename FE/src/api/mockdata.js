@@ -437,70 +437,17 @@ export const mockDataNotification = {
         'username': 'Nguyen Minh Toan',
         'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
       },
-      'type': 'like',
+      'type': 'friend_request',
       'createdAt': '2024-08-19T12:10:00Z',
       'post_id': 'post_id_1',
       'status': 'unread',
       'message': 'jane_smith liked your post.'
     },
     {
-      '_id': 'notification_id_2',
-      'sender': {
-        'user_id': 'user_id_3',
-        'username': 'alice_brown',
-        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
-      },
-      'receiver': {
-        'user_id': 'user_id_1',
-        'username': 'Nguyen Minh Toan',
-        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
-      },
-      'type': 'comment',
-      'createdAt': '2024-08-19T12:15:00Z',
-      'post_id': 'post_id_1',
-      'status': 'unread',
-      'message': 'alice_brown commented on your post.'
-    },
-    {
-      '_id': 'notification_id_3',
-      'sender': {
-        'user_id': 'user_id_4',
-        'username': 'john_doe',
-        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
-      },
-      'receiver': {
-        'user_id': 'user_id_1',
-        'username': 'Nguyen Minh Toan',
-        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
-      },
-      'type': 'follow',
-      'createdAt': '2024-08-19T12:20:00Z',
-      'status': 'unread',
-      'message': 'john_doe followed you.'
-    },
-    {
-      '_id': 'notification_id_4',
-      'sender': {
-        'user_id': 'user_id_3',
-        'username': 'john_smith',
-        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
-      },
-      'receiver': {
-        'user_id': 'user_id_1',
-        'username': 'Nguyen Minh Toan',
-        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
-      },
-      'type': 'friend_request',
-      'createdAt': '2024-08-19T12:25:00Z',
-      'post_id': 'post_id_2',
-      'status': 'unread',
-      'message': 'john_smith sent you a friend request.'
-    },
-    {
-      '_id': 'notification_id_5',
+      '_id': 'notification_id_1',
       'sender': {
         'user_id': 'user_id_2',
-        'username': 'john_smith',
+        'username': 'jane_smith',
         'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
       },
       'receiver': {
@@ -509,16 +456,87 @@ export const mockDataNotification = {
         'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
       },
       'type': 'friend_request',
-      'createdAt': '2024-08-19T12:25:00Z',
-      'post_id': 'post_id_2',
+      'createdAt': '2024-08-19T12:10:00Z',
+      'post_id': 'post_id_1',
       'status': 'unread',
-      'message': 'john_smith sent you a friend request.'
+      'message': 'jane_smith liked your post.'
     },
     {
-      '_id': 'notification_id_6',
+      '_id': 'notification_id_1',
       'sender': {
-        'user_id': 'user_id_5',
-        'username': 'john_smith',
+        'user_id': 'user_id_1',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'receiver': {
+        'user_id': 'user_id_2',
+        'username': 'Nguyen Minh Toan',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'type': 'friend_request',
+      'createdAt': '2024-08-19T12:10:00Z',
+      'post_id': 'post_id_1',
+      'status': 'unread',
+      'message': 'jane_smith liked your post.'
+    },
+    {
+      '_id': 'notification_id_1',
+      'sender': {
+        'user_id': 'user_id_1',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'receiver': {
+        'user_id': 'user_id_2',
+        'username': 'Nguyen Minh Toan',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'type': 'friend_request',
+      'createdAt': '2024-08-19T12:10:00Z',
+      'post_id': 'post_id_1',
+      'status': 'unread',
+      'message': 'jane_smith liked your post.'
+    },
+    {
+      '_id': 'notification_id_1',
+      'sender': {
+        'user_id': 'user_id_1',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'receiver': {
+        'user_id': 'user_id_3',
+        'username': 'Nguyen Minh Toan',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'type': 'friend_request',
+      'createdAt': '2024-08-19T12:10:00Z',
+      'post_id': 'post_id_1',
+      'status': 'unread',
+      'message': 'jane_smith liked your post.'
+    }, {
+      '_id': 'notification_id_1',
+      'sender': {
+        'user_id': 'user_id_2',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'receiver': {
+        'user_id': 'user_id_3',
+        'username': 'Nguyen Minh Toan',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'type': 'friend_request',
+      'createdAt': '2024-08-19T12:10:00Z',
+      'post_id': 'post_id_1',
+      'status': 'unread',
+      'message': 'jane_smith liked your post.'
+    },
+    {
+      '_id': 'notification_id_1',
+      'sender': {
+        'user_id': 'user_id_3',
+        'username': 'jane_smith',
         'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
       },
       'receiver': {
@@ -527,10 +545,46 @@ export const mockDataNotification = {
         'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
       },
       'type': 'friend_request',
-      'createdAt': '2024-08-19T12:25:00Z',
-      'post_id': 'post_id_2',
+      'createdAt': '2024-08-19T12:10:00Z',
+      'post_id': 'post_id_1',
       'status': 'unread',
-      'message': 'john_smith sent you a friend request.'
+      'message': 'jane_smith liked your post.'
+    },
+    {
+      '_id': 'notification_id_1',
+      'sender': {
+        'user_id': 'user_id_3',
+        'username': 'jane_smith',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'receiver': {
+        'user_id': 'user_id_2',
+        'username': 'Nguyen Minh Toan',
+        'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+      },
+      'type': 'friend_request',
+      'createdAt': '2024-08-19T12:10:00Z',
+      'post_id': 'post_id_1',
+      'status': 'unread',
+      'message': 'jane_smith liked your post.'
     }
   ]
 }
+
+export const mockDataUser = [
+  {
+    '_id': 'user_id_1',
+    'username': 'Nguyen Minh Toan',
+    'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+  },
+  {
+    '_id': 'user_id_2',
+    'username': 'jane_smith',
+    'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+  },
+  {
+    '_id': 'user_id_3',
+    'username': 'alice_brown',
+    'profile_picture': 'https://avatars.githubusercontent.com/u/117341351?v=4'
+  }
+]

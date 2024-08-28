@@ -8,6 +8,7 @@ import BtnProfile from './Menu/BtnProfile'
 import Divider from '@mui/material/Divider'
 import { NavLink } from 'react-router-dom'
 import BtnAddPost from './Menu/BtnAddPost'
+import BtnSwitchAccount from './Menu/BtnSwitchAccount'
 const Nav = () => {
   return (
     <>
@@ -50,6 +51,8 @@ const Nav = () => {
           <BtnProfile />
         </NavLink>
         <BtnAddPost />
+        <Divider orientation="horizontal" sx={{ width: '100%', margin: '0' }} />
+        <BtnSwitchAccount />
       </Box>
 
       <Divider
