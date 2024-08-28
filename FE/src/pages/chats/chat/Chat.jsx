@@ -12,9 +12,9 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
 import { socket } from '~/Socket'
-import { useEffect, useState } from 'react'
-import { mockDataChat } from '~/api/mockdata'
-import { mockDataProfile } from '~/api/mockdata'
+import { useEffect, useState, useCallback } from 'react'
+import { mockDataChat, mockDataProfile } from '~/api/mockdata'
+
 const Chat = ({ setStatusAction, room }) => {
   const profile = mockDataProfile.profile
   const [chat, setChat] = useState('')
@@ -22,26 +22,38 @@ const Chat = ({ setStatusAction, room }) => {
     chatMessages: [],
     roomInfo: []
   })
+
   useEffect(() => {
+    socket.emit('join_room', room._id)
     setMessagesReceived(mockDataChat)
+    return () => {
+      socket.emit('leave_room', room._id)
+    }
+  }, [room._id])
+
+  const handleReceiveMessage = useCallback((data) => {
+    setMessagesReceived(prevMessages => ({
+      ...prevMessages,
+      chatMessages: [...prevMessages.chatMessages, data]
+    }))
   }, [])
+
+  useEffect(() => {
+    socket.on('receive_message', handleReceiveMessage)
+
+    return () => {
+      socket.off('receive_message', handleReceiveMessage)
+    }
+  }, [handleReceiveMessage])
+
   const handleSendChat = () => {
-    if (chat) {
+    if (chat.trim()) {
       const time = new Date().toLocaleTimeString()
-      socket.emit('receive_message', { message: chat, userId: profile._id, time, avatar: profile.avatar })
+      socket.emit('receive_message', { room: room._id, message: chat, userId: profile._id, time, avatar: profile.avatar })
       setChat('')
     }
   }
 
-  useEffect(() => {
-    socket.on('receive_message', (data) => {
-      setMessagesReceived({
-        ...messagesReceived,
-        chatMessages: [...messagesReceived.chatMessages, data]
-      })
-    }
-    )
-  }, [messagesReceived])
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100vh', padding: '10px' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '60px', padding: '10px' }}>
@@ -51,8 +63,8 @@ const Chat = ({ setStatusAction, room }) => {
               <ArrowBackIcon />
             </IconButton>
           </Tooltip>
-          <Button startIcon={<Avatar src={messagesReceived.roomInfo.avatarRoom} sx={{ cursor: 'pointer', width: '40px', height: '40px' }} />}>
-            <Typography variant='body1'>{messagesReceived.roomInfo.name}</Typography>
+          <Button startIcon={<Avatar src={room.avatarRoom} sx={{ cursor: 'pointer', width: '40px', height: '40px' }} />}>
+            <Typography variant='body1'>{room.name}</Typography>
           </Button>
         </Box>
         <Tooltip title='More'>
@@ -63,46 +75,35 @@ const Chat = ({ setStatusAction, room }) => {
       </Box>
       <Divider />
       <Box sx={{ overflowY: 'auto', overflowX: 'hidden', height: '100%' }}>
-        {messagesReceived?.chatMessages?.map((data, index) => {
-          if (data.userId === profile._id) {
-            return (
-              <Box key={index}
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  alignItems: 'center',
-                  gap: 1,
-                  padding: '1px 10px',
-                  '&:hover .time': {
-                    opacity: 1, visibility: 'visible'
-                  }
-                }} >
-                <Typography variant='caption' className='time'
-                  sx={{ opacity: 0, transition: 'opacity 0.3s', visibility: 'hidden' }} >
-                  {data.time}
-                </Typography>
-                <Typography variant='body1' sx={{ backgroundColor: 'error.main', color: '#ffffffff', borderRadius: '20px', padding: '10px 15px', fontSize: '14px' }}>
-                  {data.message}
-                </Typography>
-              </Box>
-            )
-          } else {
-            return (
-              <Box key={index}
-                sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 1, padding: '5px', ':hover .time': { opacity: 1, visibility: 'visible' } }} >
-                <Avatar src={data.avatar} />
-                <Typography variant='body1' sx={{ backgroundColor: 'secondary.main', color: '#ffffffff', borderRadius: '20px', padding: '10px 15px', fontSize: '14px' }}>
-                  {data.message}
-                </Typography>
-                <Chip label={data.name} color='primary' />
-                <Typography variant='caption' className='time'
-                  sx={{ opacity: 0, transition: 'opacity 0.3s', visibility: 'hidden' }} >
-                  {data.time}
-                </Typography>
-              </Box>
-            )
-          }
-        })}
+        {messagesReceived.chatMessages.map((data, index) => {
+          return <Box key={index}
+            sx={{
+              display: 'flex',
+              justifyContent: data.userId === profile._id ? 'flex-end' : 'flex-start',
+              alignItems: 'center',
+              gap: 1,
+              padding: '5px',
+              ':hover .time': { opacity: 1, visibility: 'visible' }
+            }} >
+            {data.userId !== profile._id && <Avatar src={data.avatar} />}
+            <Typography variant='body1'
+              sx={{
+                backgroundColor: data.userId === profile._id ? 'error.main' : 'secondary.main',
+                color: '#ffffff',
+                borderRadius: '20px',
+                padding: '10px 15px',
+                fontSize: '14px'
+              }}>
+              {data.message}
+            </Typography>
+            {data.userId !== profile._id && <Chip label={data.name} color='primary' />}
+            <Typography variant='caption' className='time'
+              sx={{ opacity: 0, transition: 'opacity 0.3s', visibility: 'hidden' }} >
+              {data.time}
+            </Typography>
+          </Box>
+        })
+        }
       </Box>
       <Divider />
       <Box sx={{ padding: '10px' }}>
@@ -152,7 +153,7 @@ const Chat = ({ setStatusAction, room }) => {
           </Tooltip>
         </Box>
       </Box>
-    </Box >
+    </Box>
   )
 }
 
