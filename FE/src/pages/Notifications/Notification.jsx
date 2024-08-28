@@ -29,11 +29,21 @@ const Notification = ({ notification }) => {
       return `${Math.floor(days)} days ago`
     }
   }
+  const handleJoinNotification = () => {
+    socket.emit('join_notification', notification.sender.user_id)
+  }
+  const handleLeaveNotification = () => {
+    socket.emit('leave_notification', notification.sender.user_id)
+  }
   const handleAccept = () => {
-    socket.emit('notification', { ...notification, message: 'Accepted', sender: notification?.receiver, receiver: notification?.sender })
+
+    socket.emit('notification', { ...notification, status: 'accepted', message: 'Friend request accepted' })
+
   }
   const handleReject = () => {
-    socket.emit('notification', { ...notification, message: 'Rejected', sender: notification?.receiver, receiver: notification?.sender })
+
+    socket.emit('notification', { ...notification, status: 'rejected', message: 'Friend request rejected' })
+
   }
   return (
     <Box
