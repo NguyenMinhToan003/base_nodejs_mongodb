@@ -16,7 +16,7 @@ const BtnNotification = () => {
 
   useEffect(() => {
     const handleNotification = (data) => {
-      toast.success(data.message)
+      toast.info(data.message)
       setCountNotification(prevCount => prevCount + 1)
     }
 

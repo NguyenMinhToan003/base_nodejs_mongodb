@@ -40,7 +40,6 @@ const Chat = ({ setStatusAction, room }) => {
 
   useEffect(() => {
     socket.on('receive_message', handleReceiveMessage)
-
     return () => {
       socket.off('receive_message', handleReceiveMessage)
     }
@@ -79,8 +78,10 @@ const Chat = ({ setStatusAction, room }) => {
           return <Box key={index}
             sx={{
               display: 'flex',
-              justifyContent: data.userId === profile._id ? 'flex-end' : 'flex-start',
-              alignItems: 'center',
+              justifyContent: 'flex-start',
+              alignItems: 'start',
+              maxWidth: '100%',
+              flexDirection: data.userId === profile._id ? 'row-reverse' : 'row',
               gap: 1,
               padding: '5px',
               ':hover .time': { opacity: 1, visibility: 'visible' }
@@ -88,11 +89,15 @@ const Chat = ({ setStatusAction, room }) => {
             {data.userId !== profile._id && <Avatar src={data.avatar} />}
             <Typography variant='body1'
               sx={{
-                backgroundColor: data.userId === profile._id ? 'error.main' : 'secondary.main',
-                color: '#ffffff',
+                wordBreak: 'break-word',
+                lineHeight: '1.5',
+                letterSpacing: '0.5px',
+                backgroundColor: data.userId === profile._id ? 'secondary.main' : '#e5e5e5',
+                color: data.userId === profile._id ? 'background.primary' : 'text.primary',
                 borderRadius: '20px',
                 padding: '10px 15px',
-                fontSize: '14px'
+                fontSize: '15p',
+                boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)'
               }}>
               {data.message}
             </Typography>
