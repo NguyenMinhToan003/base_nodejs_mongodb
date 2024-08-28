@@ -24,7 +24,9 @@ const Nav = () => {
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: '1.2rem',
-          color: 'text.secondary'
+          color: 'text.secondary',
+          overflowY: 'auto',
+          overflowX: 'hidden'
         }}
       >
         <NavLink to="/" className='navLink'>
