@@ -4,15 +4,15 @@ import { useState } from 'react'
 import Chat from '~/pages/Chats/chat/Chat'
 const Chats = () => {
   const [statusAction, setStatusAction] = useState('recovery')
-  const [user, setUser] = useState({})
+  const [room, setRoom] = useState({})
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         {
-          statusAction === 'recovery' && <Recovery setStatusAction={setStatusAction} setUser={setUser} />
+          statusAction === 'recovery' && <Recovery setStatusAction={setStatusAction} setRoom={setRoom} />
         }
         {
-          statusAction === 'chat' && <Chat setStatusAction={setStatusAction} user={user} />
+          statusAction === 'chat' && <Chat setStatusAction={setStatusAction} room={room} />
         }
       </Box>
     </>

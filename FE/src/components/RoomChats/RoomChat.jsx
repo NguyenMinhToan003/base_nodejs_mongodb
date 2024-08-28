@@ -7,6 +7,10 @@ import CloseIcon from '@mui/icons-material/Close'
 import { styled } from '@mui/material/styles'
 import Badge from '@mui/material/Badge'
 const RoomChat = ({ roomChat, setStatusAction, setRoom }) => {
+  const handleChooseRoom = () => {
+    setStatusAction('chat')
+    setRoom(roomChat)
+  }
   if (!roomChat) return null
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -40,7 +44,7 @@ const RoomChat = ({ roomChat, setStatusAction, setRoom }) => {
     <Box
       sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, backgroundColor: 'background.secondary', cursor: 'pointer', ':hover': { backgroundColor: 'background.primary' }, padding: '10px 0px' }} >
       <Box
-        onClick={() => { setStatusAction('chat'), setRoom(roomChat) }}
+        onClick={() => handleChooseRoom()}
         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 2, width: '100%' }}>
         <StyledBadge
           overlap="circular"
