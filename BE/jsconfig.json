@@ -1,0 +1,10 @@
+/**
+ * @swagger
+ */
+{
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"],
+    },
+  }
+}
