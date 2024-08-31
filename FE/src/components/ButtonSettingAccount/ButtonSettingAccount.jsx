@@ -9,8 +9,11 @@ import MenuItem from '@mui/material/MenuItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import PersonAdd from '@mui/icons-material/PersonAdd'
 import Logout from '@mui/icons-material/Logout'
+import { useDispatch } from 'react-redux'
+import { logout } from '~/redux/UserSlice'
 import { useState } from 'react'
 const ButtonSettingAccount = () => {
+  const dispatch = useDispatch()
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -18,6 +21,9 @@ const ButtonSettingAccount = () => {
   }
   const handleClose = () => {
     setAnchorEl(null)
+  }
+  const handleLogout = () => {
+    dispatch(logout())
   }
   return <>
     <Tooltip title="Settings"><IconButton sx={{ color: 'text.primary' }} onClick={handleClick}
@@ -41,7 +47,7 @@ const ButtonSettingAccount = () => {
         Add another account
       </MenuItem>
       <NavLink to='/login'>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => { handleClose(), handleLogout() }}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

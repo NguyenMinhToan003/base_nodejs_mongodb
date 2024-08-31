@@ -10,12 +10,30 @@ import Divider from '@mui/material/Divider'
 import TextField from '@mui/material/TextField'
 import Link from '@mui/material/Link'
 import { NavLink } from 'react-router-dom'
-
+import { getDataUser } from '~/api/AuthAPI'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { login } from '~/redux/UserSlice'
+import { useNavigate } from 'react-router-dom'
+import CircularProgress from '@mui/material/CircularProgress'
 const Login = () => {
+  const navigation = useNavigate()
+  const dispatch = useDispatch()
+  const [account, setAccount] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const handleLogin = async () => {
+    setLoading(true)
+    const dataUser = await getDataUser(account, password)
+    dispatch(login(dataUser))
+    setLoading(false)
+    navigation('/')
+  }
   return (
     <>
+      {loading && <CircularProgress color='secondary' sx={{ position: 'fixed', top: '50%', left: '50%' }} />}
       <Grid container sx={{ height: '100%', width: '100%', padding: '5px', backgroundColor: 'background.secondary', color: 'text.primary' }}>
-        <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Grid item md={6} xs={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Box sx={{ maxWidth: ' 25rem' }}>
             <Typography variant='h4' sx={{ marginBottom: 2 }}>
               Welcome Back 👋
@@ -25,12 +43,13 @@ const Login = () => {
               management your project
             </Typography>
             <Box sx={{ width: '24rem', display: 'flex', flexDirection: 'column', gap: 3, marginTop: 5 }}>
-              <TextField id='email' label='Email' type='email' color='secondary' />
-              <TextField id='password' label='Password' type='password' color='secondary' />
+              <TextField id='email' label='Email' type='email' color='secondary' value={account} onChange={(event) => setAccount(event.target.value)} />
+              <TextField id='password' label='Password' type='password' color='secondary' value={password} onChange={(event) => setPassword(event.target.value)} />
               <Link sx={{ color: '#2b54ea', textAlign: 'right' }}>
                 Forgot Password?
               </Link>
               <Button
+                onClick={handleLogin}
                 sx={{ fontWeight: 'bold', paddingX: 2, paddingY: 2, borderRadius: 3, border: '2px solid #162d3a', backgroundColor: '#162d3a', textAlign: 'center', color: 'background.primary', ':hover': { color: '#162d3a' } }}>
                 Login
               </Button>
@@ -55,7 +74,7 @@ const Login = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item md={6} xs={12}>
           <img src={image} style={{ width: '100%', objectFit: 'scale-down' }} alt='login_art' />
         </Grid>
       </Grid>

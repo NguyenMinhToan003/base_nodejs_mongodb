@@ -8,6 +8,8 @@ import { ConfirmProvider } from 'material-ui-confirm'
 import { Bounce, ToastContainer } from 'react-toastify'
 import './main.css'
 import 'react-toastify/dist/ReactToastify.css'
+import { Provider } from 'react-redux'
+import store from '~/redux/store'
 createRoot(document.getElementById('root')).render(
   <CssVarsProvider theme={theme}>
     <ConfirmProvider defaultOptions={
@@ -19,7 +21,9 @@ createRoot(document.getElementById('root')).render(
     }>
       <BrowserRouter>
         <CssBaseline />
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
         <ToastContainer
           position='bottom-left'
           autoClose={5000}

@@ -4,15 +4,15 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import { NavLink, Outlet } from 'react-router-dom'
-import ButtonSettingAccount from '../../components/ButtonSettingAccount/ButtonSettingAccount'
-
+import ButtonSettingAccount from '~/components/ButtonSettingAccount/ButtonSettingAccount'
+import { useSelector } from 'react-redux'
 const Profile = () => {
-  const [isSticky, setIsSticky] = useState(false)
+  const user = useSelector((state) => state.userData)
 
+  const [isSticky, setIsSticky] = useState(false)
   const handleScroll = () => {
     setIsSticky(window.scrollY > 400)
   }
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -29,10 +29,10 @@ const Profile = () => {
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'start', gap: 2, padding: '10px', marginBottom: '30px' }}>
           <Box sx={{ borderRadius: '100rem', minWidth: '140px', height: '140px' }}>
-            <img src={avatarProfile} alt='avatar' style={{ width: '100%', height: '100%', borderRadius: 'inherit' }} />
+            <img src={user.profile_picture} alt='avatar' style={{ width: '100%', height: '100%', borderRadius: 'inherit' }} />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 1 }}>
-            <Typography variant='h5' color='text.primary' sx={{ fontWeight: 'bold' }}>Nguyen Minh Toan</Typography>
+            <Typography variant='h5' color='text.primary' sx={{ fontWeight: 'bold' }}>{user.username}</Typography>
             <Typography variant='body1' color='text.secondary' sx={{ ':hover': { color: 'error.main' }, cursor: 'pointer' }}>@johndoe</Typography>
             <Typography color='text.primary' component='span'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet turpis in felis luctus vehicula. Integer semper, nunc ut sollicitudin aliquam, felis odio aliquet odio, nec ultricies metus nunc vel libero.

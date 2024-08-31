@@ -103,7 +103,7 @@ const Chat = ({ setStatusAction, room }) => {
             </Typography>
             {data.userId !== profile._id && <Chip label={data.name} color='primary' />}
             <Typography variant='caption' className='time'
-              sx={{ opacity: 0, transition: 'opacity 0.3s', visibility: 'hidden' }} >
+              sx={{ opacity: 0, transition: 'opacity 0.3s', visibility: 'hidden', whiteSpace: 'nowrap' }} >
               {data.time}
             </Typography>
           </Box>
